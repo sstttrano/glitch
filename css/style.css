@@ -1,0 +1,219 @@
+*,
+*:before,
+*:after{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+a, p, h1, h2, h3, h4, h5, h6{
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+}
+html,body{
+	height: 100%;
+	color: #fff;
+	background-color: #000;
+	font-size: 14px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+::-webkit-scrollbar{
+	width: 0;
+}
+._container{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.content{
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+}
+@media(max-width: 767px){
+	.content{
+		flex-wrap: wrap-reverse;
+		width: 100%;
+		justify-content: center;
+	}
+}
+.glitch{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.glitch__text{
+	font-size: 5rem;
+	letter-spacing: 7px;
+	text-transform: uppercase;
+	position: relative;
+
+	text-shadow: 
+	0.05em 0 0 rgba(255, 0, 0, 0.75),
+	-0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+	0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+	animation: glitch 1900ms infinite;
+}
+@media(max-width: 767px){
+	.glitch__text{
+		font-size: 3rem;
+		padding: 25px 0;
+	}
+	.glitch__text span{
+		padding: 25px 0;
+	}
+}
+.glitch__text span{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.glitch__text span:first-child{
+	animation: glitch 800ms infinite;
+	clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+	transform: translate(-0.01em, -0.015em);
+	opacity: 0.8;
+}
+.glitch__text span:last-child{
+	animation: glitch 755ms infinite;
+	clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+	transform: translate(0.02em, 0.015em);
+	opacity: 0.8;
+}
+@keyframes glitch{
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+.content__item{
+	height: 600px;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	/*border: 2px solid #fff;*/
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+}
+@media(max-width: 767px){
+	.content__item{
+		margin: 20px;
+	}
+}
+.content__item::before{
+	content: '';
+	position: absolute;
+	width: 150px;
+	height: 900px;
+	top: 50px;
+	left: 70px;
+	background-color: #AA4CCD;
+	animation: border 8s linear infinite;
+}
+.content__item::after{
+	content: '';
+	position: absolute;
+	inset: 4px;
+	background: #000;
+	border-radius: 10px;
+}
+@keyframes border{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(350deg);
+	}
+}
+.item__image{
+	height: 50%;
+	width: 100%;
+	flex: 1 1 auto;
+	position: relative;
+	z-index: 5;
+}
+.item__image img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.item__text{
+	position: relative;
+	z-index: 5;
+	flex: 1 1 auto;
+	padding: 0 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.item__text p{
+	letter-spacing: 2px;
+	font-size: 18px;
+	line-height: 1.5;
+}
+.item__text h2{
+	font-size: 24px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0 0 15px 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+@media (max-width: 767px){
+.item__text p{
+	font-size: 14px;
+}	
+.item__text h2{
+	font-size: 20px;
+}
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
